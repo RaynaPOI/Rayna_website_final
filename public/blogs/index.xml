@@ -8,39 +8,59 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 31 Oct 2017 22:27:21 -0500</lastBuildDate><atom:link href="/blogs/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Aliquam</title>
-      <link>/blogs/aliquam/</link>
-      <pubDate>Tue, 31 Oct 2017 22:42:51 -0500</pubDate>
+      <title>From Economics to Financial Analysis</title>
+      <link>/blogs/blog2/</link>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>/blogs/aliquam/</guid>
-      <description></description>
+      <guid>/blogs/blog2/</guid>
+      <description>I studied economics at the University of Cambridge, where I obtained a broad knowledge of economic models.</description>
     </item>
     
     <item>
-      <title>Tempus</title>
-      <link>/blogs/tempus/</link>
-      <pubDate>Tue, 31 Oct 2017 22:26:13 -0500</pubDate>
+      <title>My Internships</title>
+      <link>/blogs/blog3/</link>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>/blogs/tempus/</guid>
-      <description></description>
+      <guid>/blogs/blog3/</guid>
+      <description>I have worked at CITIC, HSBC and Deloitte.</description>
     </item>
     
     <item>
-      <title>Magna</title>
-      <link>/blogs/magna/</link>
-      <pubDate>Tue, 31 Oct 2017 22:26:09 -0500</pubDate>
+      <title>Stories on air</title>
+      <link>/blogs/blog4/</link>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>/blogs/magna/</guid>
-      <description></description>
+      <guid>/blogs/blog4/</guid>
+      <description>Have you ever imagined yourself flying in the sky?</description>
     </item>
     
     <item>
-      <title>Ipsum</title>
-      <link>/blogs/ipsum/</link>
+      <title>Trump&#39;s Approval Margins</title>
+      <link>/blogs/blog5/</link>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blogs/blog5/</guid>
+      <description>Trump’s Approval Margins As we saw in class, fivethirtyeight.com has detailed data on all polls that track the president’s approval
+# Import approval polls data approval_polllist &amp;lt;- read_csv(file =&amp;quot;data/approval_polllist.csv&amp;quot;) # or directly off fivethirtyeight website # approval_polllist &amp;lt;- read_csv(&amp;#39;https://projects.fivethirtyeight.com/trump-approval-data/approval_polllist.csv&amp;#39;) glimpse(approval_polllist) ## Rows: 15,619 ## Columns: 22 ## $ president &amp;lt;chr&amp;gt; &amp;quot;Donald Trump&amp;quot;, &amp;quot;Donald Trump&amp;quot;, &amp;quot;Donald Trump&amp;quot;, … ## $ subgroup &amp;lt;chr&amp;gt; &amp;quot;All polls&amp;quot;, &amp;quot;All polls&amp;quot;, &amp;quot;All polls&amp;quot;, &amp;quot;All poll… ## $ modeldate &amp;lt;chr&amp;gt; &amp;quot;9/27/2020&amp;quot;, &amp;quot;9/27/2020&amp;quot;, &amp;quot;9/27/2020&amp;quot;, &amp;quot;9/27/202… ## $ startdate &amp;lt;chr&amp;gt; &amp;quot;1/20/2017&amp;quot;, &amp;quot;1/20/2017&amp;quot;, &amp;quot;1/20/2017&amp;quot;, &amp;quot;1/21/201… ## $ enddate &amp;lt;chr&amp;gt; &amp;quot;1/22/2017&amp;quot;, &amp;quot;1/22/2017&amp;quot;, &amp;quot;1/24/2017&amp;quot;, &amp;quot;1/23/201… ## $ pollster &amp;lt;chr&amp;gt; &amp;quot;Gallup&amp;quot;, &amp;quot;Morning Consult&amp;quot;, &amp;quot;Ipsos&amp;quot;, &amp;quot;Gallup&amp;quot;, … ## $ grade &amp;lt;chr&amp;gt; &amp;quot;B&amp;quot;, &amp;quot;B/C&amp;quot;, &amp;quot;B-&amp;quot;, &amp;quot;B&amp;quot;, &amp;quot;B-&amp;quot;, &amp;quot;C+&amp;quot;, &amp;quot;B+&amp;quot;, &amp;quot;B&amp;quot;, &amp;quot;C… ## $ samplesize &amp;lt;dbl&amp;gt; 1500, 1992, 1632, 1500, 1651, 1500, 1190, 1500, … ## $ population &amp;lt;chr&amp;gt; &amp;quot;a&amp;quot;, &amp;quot;rv&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;lv&amp;quot;, &amp;quot;rv&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;lv&amp;quot;,… ## $ weight &amp;lt;dbl&amp;gt; 0.</description>
+    </item>
+    
+    <item>
+      <title>Yield Curves</title>
+      <link>/blogs/blog6/</link>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blogs/blog6/</guid>
+      <description>Challenge 1: Yield Curve inversion Every so often, we hear warnings from commentators on the “inverted yield curve” and its predictive power with respect to recessions. An explainer what a inverted yield curve is can be found here. If you’d rather listen to something, here is a great podcast from NPR on yield curve indicators
+In addition, many articles and commentators think that, e.g., Yield curve inversion is viewed as a harbinger of recession.</description>
+    </item>
+    
+    <item>
+      <title>Who am I?</title>
+      <link>/blogs/blog1/</link>
       <pubDate>Tue, 31 Oct 2017 21:28:43 -0500</pubDate>
       
-      <guid>/blogs/ipsum/</guid>
-      <description>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</description>
+      <guid>/blogs/blog1/</guid>
+      <description>Hello! My name is Rayna Zhang! I am currently undertaking Masters in Financial Analysis at London Business School.</description>
     </item>
     
   </channel>
