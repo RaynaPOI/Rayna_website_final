@@ -5,7 +5,7 @@ categories:
 date: "2020-10-13"
 description: Yield Curves
 draft: false
-image: bull.jpg
+image: tech.jpg
 keywords: ""
 slug: blog6
 title: Yield Curves
