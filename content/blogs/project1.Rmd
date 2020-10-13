@@ -48,6 +48,9 @@ library(openintro)
 library(tidyquant)
 library(httr)
 
+#remotes::install_github("kjhealy/socviz")
+library(socviz)
+
 ```
 
 
