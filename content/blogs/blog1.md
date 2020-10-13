@@ -11,4 +11,4 @@ slug: blog1
 title: Who am I?
 ---
 
-Hello! My name is Rayna Zhang!
+Hello! My name is Rayna Zhang! I am currently undertaking Masters in Financial Analysis at London Business School.
