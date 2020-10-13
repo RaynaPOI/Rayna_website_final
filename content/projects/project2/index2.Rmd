@@ -1,17 +1,14 @@
 ---
-title: 'Yield Curve'
-author: 'Rayna Zhang'
-date: "`r Sys.Date()`"
-output:
-  pdf_document:
-    toc: yes
-  html_document:
-    theme: flatly
-    highlight: zenburn
-    number_sections: yes
-    toc: yes
-    toc_float: yes
-    code_folding: show
+categories:
+- ""
+- ""
+date: "2020-10-13"
+description: Yield
+draft: false
+image: pic02.jpg
+keywords: ""
+slug: project2
+title: Yield Curve
 ---
 
 
