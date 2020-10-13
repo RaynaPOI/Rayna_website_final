@@ -150,6 +150,7 @@ disqusShortname = ""
   [params.contact]
     enable = true
     buttonSend = "Send message"
+    image = "x.jpg"
     buttonClear = "Clear"
 
     # Since this template is static, the contact form uses www.formspree.io as a
