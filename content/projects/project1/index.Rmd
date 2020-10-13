@@ -1,3 +1,134 @@
 ---
-site: blogdown:::blogdown_site
+categories:
+- ""
+- ""
+date: "2020-10-13"
+description: Trump's Approval Margins
+draft: false
+image: pic07.jpg
+keywords: ""
+slug: project1
+title: Trump's Approval Margins 
 ---
+
+```{r, setup, echo=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
+```
+
+
+```{r load-libraries,echo=FALSE}
+
+# Load ggplot2, dplyr, and all the other tidyverse packages
+library(tidyverse)  
+library(mosaic)
+library(ggthemes)
+library(lubridate)
+library(GGally)
+library(readxl)
+library(here)
+library(skimr)
+library(janitor)
+library(broom)
+library(tidyquant)
+library(kableExtra)
+library(infer)
+library(openintro)
+library(tidyquant)
+library(httr)
+
+```
+
+
+```{r setup, include=FALSE,echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Trump's Approval Margins
+
+**As we saw in class, fivethirtyeight.com has detailed data on [all polls that track the president's approval ](https://projects.fivethirtyeight.com/trump-approval-ratings)**
+
+```{r, cache=TRUE}
+
+# Import approval polls data
+approval_polllist <- read_csv(file ="data/approval_polllist.csv")
+
+# or directly off fivethirtyeight website
+# approval_polllist <- read_csv('https://projects.fivethirtyeight.com/trump-approval-data/approval_polllist.csv') 
+
+glimpse(approval_polllist)
+
+```
+
+## Create a plot
+
+**What I would like you to do is to calculate the average net approval rate (approve- disapprove) for each week since he got into office. I want you plot the net approval, along with its 95% confidence interval. There are various dates given for each poll, please use `enddate`, i.e., the date the poll ended.**
+
+```{r trump_margins, out.width="100%"}
+
+# Use `lubridate` to fix dates, as they are given as characters.
+approval_polllist1 <- approval_polllist%>%
+
+mutate (start_date = mdy(startdate), end_date = mdy(enddate),week = week(end_date), year = year(end_date), net = (approve - disapprove))
+
+# calculate the CI
+data1 <- approval_polllist1 %>%
+  
+  group_by(year, week) %>%
+summarise (count= n(),avg_net=mean(net),
+    sd = sd(net),
+    se = sd/ sqrt(count),
+    t_critical = qt(0.975, count - 1 ),
+    lower = avg_net - t_critical * se,
+    upper = avg_net + t_critical * se) 
+
+```
+
+
+```{r trump_margins2, out.width="100%"}
+
+# Visualise the CI
+ggplot(data1, aes(x=week, y=avg_net, color=factor(year), fill=factor(year)))+
+  geom_point() +
+  theme_bw()+
+  facet_wrap(~year)+
+  theme(legend.position = "none")+
+  geom_ribbon(aes(ymin=lower, ymax=upper, alpha=0.3), fill="white", guide = FALSE)+
+  geom_line()+
+  scale_x_continuous(breaks=seq(0,52,13))+
+  scale_y_continuous(breaks=seq(-20,7.5,2.5))+
+  guides(fill=F,color=F)+
+  labs(
+  title = "Estimating Net Approval (approve-disapprove) for Donald Trump", subtitle = "Weekly average of all polls",
+       x= "Week of the year",
+       y= "Average Net Approval (%)"
+     )+
+  geom_hline(aes(yintercept=0,color="orange"))
+  NULL
+
+```
+
+**You can facet by year, and add an orange line at zero. Your plot should look like this:**
+
+```{r trump_margins3, out.width="100%"}
+knitr::include_graphics(here::here("images", "trump_approval_margin.png"), error = FALSE)
+```
+
+## Compare Confidence Intervals
+
+**Compare the confidence intervals for `week 15` (6-12 April 2020) and `week 34` (17-23 August 2020). Can you explain what's going on? One paragraph would be enough.**         
+
+*ANSWER:*        
+     
+The CI for week 15 is (-8.29,-6.948) and the CI for week 34 is (-13.03,-9.929). We can see the the confidence interval spreads out when it is closer to the Election Day. This shows that the average net approval becomes more uncertain, although it becomes more negative. The negative value of the net approval means higher disapproval than approval for Donald Trump in the total poll. And as it is closer to the Election Day, Donald Trump has become less popular with even higher disapproval rates. This might be because recent unwise measurements taken by Donald Trump against COVID have raised American citizens' concerns, which has brought larger uncertainty in terms of voting results.
