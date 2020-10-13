@@ -101,7 +101,7 @@ disqusShortname = ""
       title = "Yields Curve"
       subtitle = "Interested in my daily study?"
       image = "pic02.jpg"
-      url = "projects/project2"
+      url = "blogs/project2"
 
     [[params.tiles.showcase]]
       title = "Trump's Approval Margins"
@@ -139,7 +139,7 @@ disqusShortname = ""
   [params.two]
     enable = true
     title = "My life"
-    subtitle = """Hello, I have something to tell you!"""
+    subtitle = """I have something to tell you!"""
     buttonText = "Come and join me"
     url = "blogs"
 
