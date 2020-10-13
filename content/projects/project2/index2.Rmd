@@ -267,8 +267,8 @@ According to [Wikipedia's list of recession in the United States](https://en.wik
 Besides calculating the spread (10year - 3months), there are a few things we need to do to produce our final plot
 
 1. Setup data for US recessions 
-1. Superimpose recessions as the grey areas in our plot
-1. Plot the spread between 10 years and 3 months as a blue/red ribbon, based on whether the spread is positive (blue) or negative(red)
+2. Superimpose recessions as the grey areas in our plot
+3. Plot the spread between 10 years and 3 months as a blue/red ribbon, based on whether the spread is positive (blue) or negative(red)
 
 - For the first, the code below creates a dataframe with all US recessions since 1946
 
