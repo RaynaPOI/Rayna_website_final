@@ -98,7 +98,7 @@ disqusShortname = ""
       url = "blogs/blog1"
 
     [[params.tiles.showcase]]
-      title = "Projects"
+      title = "Yields Curve"
       subtitle = "Interested in my daily study?"
       image = "pic02.jpg"
       url = "projects/project2"
