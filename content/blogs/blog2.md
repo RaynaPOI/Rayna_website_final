@@ -2,13 +2,13 @@
 categories:
 - ""
 - ""
-date: "2017-10-31T22:26:09-05:00"
-description: Lorem Etiam Nullam
+date: "2020-10-13"
+description: Education
 draft: false
-image: pic03.jpg
+image: FE.jpg
 keywords: ""
 slug: blog2
-title: My Internships
+title: From Economics to Financial Analysis
 ---
 
-I have worked at CITIC, HSBC and Deloitte.
+I studied economics at the University of Cambridge, where I obtained a broad knowledge of economic models. 
