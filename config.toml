@@ -100,7 +100,7 @@ disqusShortname = ""
     [[params.tiles.showcase]]
        title = "From economics to Financial Analysis"
       subtitle = "Why is this?"
-      image = "fin.jpg"
+      image = "Fin.jpg"
       url = "blogs/blog2"
 
     [[params.tiles.showcase]]
