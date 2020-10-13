@@ -15,7 +15,7 @@ output:
 ---
 
 
-```{r, setup}
+```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
   message = FALSE, 
   warning = FALSE, 
@@ -32,7 +32,7 @@ knitr::opts_chunk$set(
 ```
 
 
-```{r load-libraries}
+```{r load-libraries,echo=FALSE}
 
 # Load ggplot2, dplyr, and all the other tidyverse packages
 library(tidyverse)  
@@ -55,7 +55,7 @@ library(httr)
 ```
 
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE,echo=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 # Challenge 1: Yield Curve inversion
