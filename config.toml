@@ -94,38 +94,38 @@ disqusShortname = ""
     [[params.tiles.showcase]]
       title = "About me"
       subtitle = "Who am I?"
-      image = "Rayna01.jpg"
+      image = "pic02.jpg"
       url = "blogs/blog1"
 
     [[params.tiles.showcase]]
        title = "From economics to Financial Analysis"
       subtitle = "Why is this?"
-      image = "FE.jpg"
+      image = "pic03.jpg"
       url = "blogs/blog2"
 
     [[params.tiles.showcase]]
       title = "My Internship"
       subtitle = "Am I a good fit?"
-      image = "road.jpg"
+      image = "pic01.jpg"
       url = "blogs/blog3"
 
 
     [[params.tiles.showcase]]
       title = "My live story"
       subtitle = "What happened today?"
-      image = "spot.jpg"
+      image = "pic04.jpg"
       url = "blogs/blog4"
       
     [[params.tiles.showcase]]
       title = "Trump's Approval Margins"
       subtitle = "Who will win?"
-      image = "cliff.jpg"
+      image = "pic05.jpg"
       url = "blogs/blog5"
       
     [[params.tiles.showcase]]
       title = "Yields Curve"
       subtitle = "Interested in my daily study?"
-      image = "bull.jpg"
+      image = "pic06.jpg"
       url = "blogs/blog6"
       
     # You can make more showcases by copy and pasting the code above
