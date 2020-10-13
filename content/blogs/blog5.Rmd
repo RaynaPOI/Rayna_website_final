@@ -1,14 +1,14 @@
 ---
-categories:
-- ""
-- ""
-date: "2020-10-13"
+title: "Trump's Approval Margins"
+date: '2020-10-13'
 description: Trump's Approval Margins
-draft: false
-image: pic07.jpg
-keywords: ""
-slug: project1
-title: Trump's Approval Margins 
+draft: no
+image: cliff.jpg
+keywords: ''
+slug: blog5
+categories:
+- ''
+- ''
 ---
 
 ```{r, setup, echo=FALSE}
@@ -54,7 +54,7 @@ library(socviz)
 ```
 
 
-```{r setup, include=FALSE,echo=FALSE}
+```{r, include=FALSE,echo=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -125,7 +125,7 @@ ggplot(data1, aes(x=week, y=avg_net, color=factor(year), fill=factor(year)))+
 **You can facet by year, and add an orange line at zero. Your plot should look like this:**
 
 ```{r trump_margins3, out.width="100%"}
-knitr::include_graphics(here::here("images", "trump_approval_margin.png"), error = FALSE)
+#knitr::include_graphics(here::here("images", "trump_approval_margin.png"), error = FALSE)
 ```
 
 ## Compare Confidence Intervals

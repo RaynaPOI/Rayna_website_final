@@ -1,14 +1,14 @@
 ---
-categories:
-- ""
-- ""
-date: "2020-10-13"
+title: "Yield Curves"
+date: '2020-10-13'
 description: Yield Curves
-draft: false
+draft: no
 image: tech.jpg
-keywords: ""
+keywords: ''
 slug: blog6
-title: Yield Curves
+categories:
+- ''
+- ''
 ---
 
 ```{r, setup, echo=FALSE}
@@ -54,7 +54,7 @@ library(socviz)
 ```
 
 
-```{r setup, include=FALSE,echo=FALSE}
+```{r, include=FALSE,echo=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -66,14 +66,14 @@ In addition, many articles and commentators think that, e.g., [*Yield curve inve
 
 
 ```{r yield_curve_parable.jpg, echo=FALSE, out.width="100%"}
-knitr::include_graphics(here::here("images", "yield_curve_parable.jpg"), error = FALSE)
+#knitr::include_graphics(here::here("images", "yield_curve_parable.jpg"), error = FALSE)
 ```
 
 
 In our case we will look at US data and use the [FRED database](https://fred.stlouisfed.org/) to download historical yield curve rates, and plot the yield curves since 1999 to see when the yield curves flatten. If you want to know more, a very nice article that explains the [yield curve is and its inversion can be found here](https://fredblog.stlouisfed.org/2018/10/the-data-behind-the-fear-of-yield-curve-inversions/). At the end of this chllenge you should produce this chart
 
 ```{r yield_curve_challenge, out.width="100%"}
-knitr::include_graphics(here::here("images", "yield_curve_challenge.png"), error = FALSE)
+#knitr::include_graphics(here::here("images", "yield_curve_challenge.png"), error = FALSE)
 ```
 
 
@@ -178,7 +178,7 @@ geom_line() +
 **Original Graph**
 
 ```{r yield_curve_1, echo=FALSE, out.width="100%"}
-knitr::include_graphics(here::here("images", "yield_curve1.png"), error = FALSE)
+#knitr::include_graphics(here::here("images", "yield_curve1.png"), error = FALSE)
 ```
 
 ### Monthly yields on US rates by duration since 1999 on a year-by-year basis
@@ -221,7 +221,7 @@ ggplot(yield_curve2,
 **Original Graph**      
  
 ```{r yield_curve_2, echo=FALSE, out.width="100%"}
-knitr::include_graphics(here::here("images", "yield_curve2.png"), error = FALSE)
+#knitr::include_graphics(here::here("images", "yield_curve2.png"), error = FALSE)
 ```
 
 ### 3-month and 10-year yields since 1999
@@ -257,7 +257,7 @@ ggplot(yield_curve3,
 **Original Graph**   
 
 ```{r yield_curve_3, echo=FALSE, out.width="100%"}
-knitr::include_graphics(here::here("images", "yield_curve3.png"), error = FALSE)
+#knitr::include_graphics(here::here("images", "yield_curve3.png"), error = FALSE)
 ```
 
 ## Yield curves flattening before recessions      
