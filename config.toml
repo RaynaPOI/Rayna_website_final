@@ -107,7 +107,7 @@ disqusShortname = ""
       title = "My Internship"
       subtitle = "Am I a good fit?"
       image = "road.jpg"
-      url = "blogs/blog2"
+      url = "blogs/blog3"
 
 
     [[params.tiles.showcase]]
@@ -120,13 +120,13 @@ disqusShortname = ""
       title = "Trump's Approval Margins"
       subtitle = "Who will win?"
       image = "cliff.jpg"
-      url = "blogs/project1"
+      url = "blogs/blog5"
       
     [[params.tiles.showcase]]
       title = "Yields Curve"
       subtitle = "Interested in my daily study?"
       image = "bull.jpg"
-      url = "blogs/project2"
+      url = "blogs/blog6"
       
     # You can make more showcases by copy and pasting the code above
 
