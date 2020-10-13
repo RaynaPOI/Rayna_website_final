@@ -5,9 +5,9 @@ categories:
 date: "2020-10-13"
 description: Yield Curves
 draft: false
-image: pic02.jpg
+image: bull.jpg
 keywords: ""
-slug: project2
+slug: blog6
 title: Yield Curves
 ---
 
