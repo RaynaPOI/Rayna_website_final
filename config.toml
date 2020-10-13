@@ -98,7 +98,7 @@ disqusShortname = ""
       url = "blogs/blog1"
 
     [[params.tiles.showcase]]
-       title = "From economics to Financial Analysis"
+       title = "From Economics to Financial Analysis"
       subtitle = "Why is this?"
       image = "fin.jpeg"
       url = "blogs/blog2"
