@@ -94,7 +94,7 @@ disqusShortname = ""
     [[params.tiles.showcase]]
       title = "About me"
       subtitle = "LBS MFA2021"
-      image = "Rayna01.jpeg"
+      image = "Rayna01.jpg"
       url = "blogs/blog1"
 
     [[params.tiles.showcase]]
