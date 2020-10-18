@@ -104,7 +104,7 @@ disqusShortname = ""
       url = "blogs/blog2"
 
     [[params.tiles.showcase]]
-      title = "My Internship"
+      title = "Internship Experience"
       subtitle = "Am I a good fit?"
       image = "pic01.jpg"
       url = "blogs/blog3"
@@ -112,7 +112,7 @@ disqusShortname = ""
 
     [[params.tiles.showcase]]
       title = "My live story"
-      subtitle = "What happened today?"
+      subtitle = "What has happened today?"
       image = "rain.jpg"
       url = "blogs/blog4"
       
