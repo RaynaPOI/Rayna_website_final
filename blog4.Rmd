@@ -1,0 +1,119 @@
+---
+categories:
+- ""
+- ""
+date: "2020-10-13"
+description: Stories on air
+draft: false
+image: spot.jpg
+keywords: ""
+slug: blog4
+title: Stories on air
+---
+
+
+
+```{r covid_challenge, out.width="100%"}
+url <- "https://data.cdc.gov/api/views/vbim-akqf/rows.csv?accessType=DOWNLOAD"
+covid_data <- vroom::vroom(url)%>% # If vroom::vroom(url) doesn't work, use read_csv(url)
+  clean_names()
+
+knitr::include_graphics(here::here("images", "covid_death_rate_comorbidities.png"), error = FALSE)
+knitr::include_graphics(here::here("images", "covid_death_rate_icu.png"), error = FALSE)
+```
+Given the data we have, I would like you to produce two graphs that show death % rate:
+
+1. by age group, sex, and whether the patient had co-morbidities or not
+
+```{r, co-morbidities}
+# Clean Covid data
+cleaned_covid_data <- covid_data %>% 
+  filter(age_group != "Unknown") %>% 
+  filter(sex != "Missing") %>% 
+  filter(sex != "Unknown") %>% 
+  filter(sex != "Other") %>% 
+  filter(medcond_yn != "Missing") %>% 
+  filter(medcond_yn != "Unknown") %>% 
+  filter(death_yn != "Unknown") %>% 
+  filter(death_yn != "Missing") 
+  # %>% filter(current_status != "Probable Case")
+
+
+# Calculation Covid_comorbidities
+covid_comorbidities <- cleaned_covid_data %>% 
+  dplyr::count(age_group,sex,medcond_yn,death_yn) %>% 
+  spread(key = death_yn, value = n) %>% 
+ mutate(death_percentage = Yes/(Yes+No)) 
+
+```
+
+```{r, plot_comorbidities, fig.height = 8, fig.width=15}
+
+# Change the order and the label name
+covid_comorbidities$medcond_yn_f = factor(covid_comorbidities$medcond_yn, levels=c('Yes','No'))
+covid_comorbidities$medcond_yn_f <- factor(covid_comorbidities$medcond_yn_f, labels = c("With Comorbidities", "Without Comorbidities"))
+
+# ggplot
+ggplot(covid_comorbidities,aes(x = age_group, y =death_percentage))+
+      geom_col(fill = "#6b7ca4", show.legend = FALSE, alpha = 1)+
+      theme_bw()+
+      facet_grid(medcond_yn_f ~ sex)+
+      coord_flip()+
+      geom_text(aes(label = round(death_percentage*100, 1), hjust = -0.2))+
+      labs(title = "Covid death percentage by sex, age group and presence of co-morbidities")+
+      theme_classic()+
+      theme(axis.title.x = element_blank(),
+            axis.title.y = element_blank())+
+      scale_y_continuous(labels = scales::percent)
+
+```
+
+1. by age group, sex, and whether the patient was admited to Intensive Care Unit (ICU) or not.
+
+```{r}
+
+# Clean Covid data
+covid_data_cleaned_icu <- covid_data %>% 
+  filter(age_group != "Unknown") %>% 
+  filter(sex != "Missing") %>% 
+  filter(sex != "Unknown") %>% 
+  filter(sex != "Other") %>% 
+  filter(icu_yn != "Missing") %>% 
+  filter(icu_yn != "Unknown") %>% 
+  filter(death_yn != "Unknown") %>% 
+  filter(death_yn != "Missing")
+
+# Calculation death_percentage
+covid_icu <- covid_data_cleaned_icu %>% 
+  dplyr::count(age_group,sex,icu_yn,death_yn) %>% 
+  spread(key = death_yn, value = n) %>% 
+ mutate(death_percentage = Yes/(Yes+No)) 
+```
+
+```{r, plot_icu, fig.height = 8, fig.width=15}
+
+# Change order and label name
+covid_icu$icu_yn = factor(covid_icu$icu_yn, levels=c('Yes','No'))
+icu_name <- list("Yes" = "ICU Admitted ",
+                 "No" = "No ICU")
+icu_labeller <- function(variable, value){
+  return(icu_name[value])
+}
+
+
+# Visualization
+ggplot(covid_icu,aes(x = age_group, y =death_percentage))+
+      geom_col(fill = "#fe9481", show.legend = FALSE, alpha = 0.85)+
+      theme_bw()+
+      facet_grid(icu_yn ~ sex, labeller = icu_labeller)+
+      coord_flip()+
+      geom_text(aes(label = round(death_percentage*100, 1), hjust = -0.1))+
+      labs(title = "Covid death percentage by sex, age group and whether patient was ICU Admitted")+
+      theme_classic()+
+      theme(axis.title.x = element_blank(),
+            axis.title.y = element_blank())+
+      scale_y_continuous(labels = scales::percent)
+      
+```
+
+

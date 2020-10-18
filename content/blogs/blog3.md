@@ -3,12 +3,12 @@ categories:
 - ""
 - ""
 date: "2020-10-13"
-description: My internships
+description: 
 draft: false
 image: road.jpg
 keywords: ""
 slug: blog3
-title: My Internships
+title: Am I a good fit?
 ---
 
 I have worked at CITIC, HSBC, Deloitte and Oriental Securities as a summer intern. 

@@ -3,7 +3,7 @@ categories:
 - ""
 - ""
 date: "2020-10-13"
-description: Education
+description: 
 draft: false
 image: FE.jpg
 keywords: ""
