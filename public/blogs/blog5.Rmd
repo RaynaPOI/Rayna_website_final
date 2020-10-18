@@ -3,7 +3,7 @@ title: "Trump's Approval Margins"
 date: '2020-10-13'
 description: Trump's Approval Margins
 draft: no
-image: cliff.jpg
+image: trump.jpg
 keywords: ''
 slug: blog5
 categories:
