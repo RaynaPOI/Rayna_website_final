@@ -111,8 +111,8 @@ disqusShortname = ""
 
 
     [[params.tiles.showcase]]
-      title = "My live story"
-      subtitle = "I have something to tell you"
+      title = "Climate Change and Temperature"
+      subtitle = "How fast is the climate change?"
       image = "rain.jpg"
       url = "blogs/blog4"
       
