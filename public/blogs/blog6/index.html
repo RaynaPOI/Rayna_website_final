@@ -8,7 +8,7 @@
 	<meta name="description" content="Rayna Zhang&#39;s Portfolio">
 	<meta name="author" content="Rayna">
 	<meta name="generator" content="Hugo 0.76.4" />
-	<title>Yield Curves &middot; Rayna Zhang</title>
+	<title>Do Yield Curves foresee recessions? &middot; Rayna Zhang</title>
 	<!-- Stylesheets -->
 	
 	<link rel="stylesheet" href="/css/main.css"/>
@@ -73,7 +73,7 @@
                     <section id="one">
                         <div class="inner">
                             <header class="major">
-                                <h1>Yield Curves</h1>
+                                <h1>Do Yield Curves foresee recessions?</h1>
                             </header>
                             
                                 <span class="image main"><img src="/img/blogs/tech.jpg" alt="" /></span>
@@ -81,12 +81,13 @@
                             
 
 
-<div id="challenge-1-yield-curve-inversion" class="section level1">
-<h1>Challenge 1: Yield Curve inversion</h1>
-<p>Every so often, we hear warnings from commentators on the “inverted yield curve” and its predictive power with respect to recessions. An explainer what a <a href="https://www.reuters.com/article/us-usa-economy-yieldcurve-explainer/explainer-what-is-an-inverted-yield-curve-idUSKBN1O50GA">inverted yield curve is can be found here</a>. If you’d rather listen to something, here is a great podcast from <a href="https://www.podbean.com/media/share/dir-4zgj9-6aefd11">NPR on yield curve indicators</a></p>
+<div id="yield-curve-inversion" class="section level1">
+<h1>Yield Curve inversion</h1>
+<p>Every so often, we hear warnings from commentators on the “inverted yield curve” and its predictive power with respect to recessions. An explainer what a <a href="https://www.reuters.com/article/us-usa-economy-yieldcurve-explainer/explainer-what-is-an-inverted-yield-curve-idUSKBN1O50GA">inverted yield curve is can be found here</a>. Here is a great podcast from <a href="https://www.podbean.com/media/share/dir-4zgj9-6aefd11">NPR on yield curve indicators</a></p>
 <p>In addition, many articles and commentators think that, e.g., <a href="https://www.bloomberg.com/news/articles/2019-08-14/u-k-yield-curve-inverts-for-first-time-since-financial-crisis"><em>Yield curve inversion is viewed as a harbinger of recession</em></a>. One can always doubt whether inversions are truly a harbinger of recessions, and <a href="https://twitter.com/5_min_macro/status/1161627360946511873">use the attached parable on yield curve inversions</a>.</p>
-<p>In our case we will look at US data and use the <a href="https://fred.stlouisfed.org/">FRED database</a> to download historical yield curve rates, and plot the yield curves since 1999 to see when the yield curves flatten. If you want to know more, a very nice article that explains the <a href="https://fredblog.stlouisfed.org/2018/10/the-data-behind-the-fear-of-yield-curve-inversions/">yield curve is and its inversion can be found here</a>. At the end of this chllenge you should produce this chart</p>
-<pre class="r"><code>#knitr::include_graphics(here::here(&quot;images&quot;, &quot;yield_curve_challenge.png&quot;), error = FALSE)</code></pre>
+<p>In our case we will look at US data and use the <a href="https://fred.stlouisfed.org/">FRED database</a> to download historical yield curve rates, and plot the yield curves since 1999 to see when the yield curves flatten. If you want to know more, a very nice article that explains the <a href="https://fredblog.stlouisfed.org/2018/10/the-data-behind-the-fear-of-yield-curve-inversions/">yield curve is and its inversion can be found here</a>.</p>
+<div id="download-data" class="section level2">
+<h2>Download Data</h2>
 <p>First, we will use the <code>tidyquant</code> package to download monthly rates for different durations.</p>
 <pre class="r"><code># Get a list of FRED codes for US rates and US yield curve; choose monthly frequency
 # to see, eg., the 3-month T-bill https://fred.stlouisfed.org/series/TB3MS
@@ -264,6 +265,9 @@ glimpse(df)</code></pre>
 ## $ symbol &lt;chr&gt; &quot;TB3MS&quot;, &quot;TB3MS&quot;, &quot;TB3MS&quot;, &quot;TB3MS&quot;, &quot;TB3MS&quot;, &quot;TB3MS&quot;, &quot;TB3MS&quot;…
 ## $ date   &lt;date&gt; 1960-01-01, 1960-02-01, 1960-03-01, 1960-04-01, 1960-05-01, …
 ## $ price  &lt;dbl&gt; 4.35, 3.96, 3.31, 3.23, 3.29, 2.46, 2.30, 2.30, 2.48, 2.30, 2…</code></pre>
+</div>
+<div id="join-dataframe" class="section level2">
+<h2>Join dataframe</h2>
 <p>Our dataframe <code>df</code> has three columns (variables):</p>
 <ul>
 <li><code>symbol</code>: the FRED database ticker symbol</li>
@@ -273,6 +277,7 @@ glimpse(df)</code></pre>
 <p>The first thing would be to join this dataframe <code>df</code> with the dataframe <code>mylookup</code> so we have a more readable version of maturities, durations, etc.</p>
 <pre class="r"><code># joining two dataframes
 yield_curve &lt;-left_join(df,mylookup,by=&quot;symbol&quot;) </code></pre>
+</div>
 <div id="plotting-the-yield-curve" class="section level2">
 <h2>Plotting the yield curve</h2>
 <p>This may seem long but it should be easy to produce the following three plots</p>
@@ -302,7 +307,6 @@ geom_line() +
   theme(legend.position = &quot;none&quot;)+
   NULL</code></pre>
 <p><img src="/blogs/blog6_files/figure-html/yield_curve_m1-1.png" width="100%" style="display: block; margin: auto;" /></p>
-<p><strong>Original Graph</strong></p>
 </div>
 <div id="monthly-yields-on-us-rates-by-duration-since-1999-on-a-year-by-year-basis" class="section level3">
 <h3>Monthly yields on US rates by duration since 1999 on a year-by-year basis</h3>
@@ -338,7 +342,6 @@ ggplot(yield_curve2,
        caption = &quot;Source: St. Louis Federal Reserve Economic Database (FRED)&quot;)+
   NULL</code></pre>
 <p><img src="/blogs/blog6_files/figure-html/yield_curve_m2-1.png" width="100%" style="display: block; margin: auto;" /></p>
-<p><strong>Original Graph</strong></p>
 </div>
 <div id="month-and-10-year-yields-since-1999" class="section level3">
 <h3>3-month and 10-year yields since 1999</h3>
@@ -367,7 +370,6 @@ ggplot(yield_curve3,
   theme(legend.title=element_blank())+
   NULL</code></pre>
 <p><img src="/blogs/blog6_files/figure-html/yield_curve_m4-1.png" width="100%" style="display: block; margin: auto;" /></p>
-<p><strong>Original Graph</strong></p>
 </div>
 </div>
 <div id="yield-curves-flattening-before-recessions" class="section level2">
@@ -379,9 +381,8 @@ ggplot(yield_curve3,
 <li>Superimpose recessions as the grey areas in our plot</li>
 <li>Plot the spread between 10 years and 3 months as a blue/red ribbon, based on whether the spread is positive (blue) or negative(red)</li>
 </ol>
-<ul>
-<li>For the first, the code below creates a dataframe with all US recessions since 1946</li>
-</ul>
+<div id="dataframe-with-all-us-recessions-since-1946" class="section level3">
+<h3>Dataframe with all US recessions since 1946</h3>
 <pre class="r"><code># get US recession dates after 1946 from Wikipedia 
 # https://en.wikipedia.org/wiki/List_of_recessions_in_the_United_States
 
@@ -408,10 +409,8 @@ recessions</code></pre>
 ##  9 1990-07-01 1991-03-01 1990-07-01 1991-03-01 243 days     
 ## 10 2001-03-01 2001-11-01 2001-03-01 2001-11-01 245 days     
 ## 11 2007-12-01 2009-06-01 2007-12-01 2009-06-01 548 days</code></pre>
-<ul>
-<li>To add the grey shaded areas corresponding to recessions, we use <code>geom_rect()</code></li>
-<li>to colour the ribbons blue/red we must see whether the spread is positive or negative and then use <code>geom_ribbon()</code>. You should be familiar with this from last week’s homework on the excess weekly/monthly rentals of Santander Bikes in London.</li>
-</ul>
+<p><em>To add the grey shaded areas corresponding to recessions, we use <code>geom_rect()</code></em></p>
+<p><em>To colour the ribbons blue/red we must see whether the spread is positive or negative and then use <code>geom_ribbon()</code>. You should be familiar with this from last week’s homework on the excess weekly/monthly rentals of Santander Bikes in London.</em></p>
 <pre class="r"><code>yield_curve3 &lt;- yield_curve %&gt;%
 
 #choose only 3-Month Treasury Bill and 10-Year Treasury Rate
@@ -471,6 +470,7 @@ ggplot(yield_curve3,
   
   NULL</code></pre>
 <p><img src="/blogs/blog6_files/figure-html/yield_curve_m5-1.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
 </div>
 </div>
 
