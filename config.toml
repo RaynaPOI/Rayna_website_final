@@ -142,7 +142,7 @@ disqusShortname = ""
   [params.two]
     enable = true
     title = "My life"
-    subtitle = """Work hard and smile hard"""
+    subtitle = """I have something to tell you"""
     buttonText = "Come and join me"
     image = "nice.jpg"
     url = "blogs"
