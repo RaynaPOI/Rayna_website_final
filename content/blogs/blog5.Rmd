@@ -1,5 +1,5 @@
 ---
-title: "Trump's Approval Margins"
+title: "Tracking the Presidents' Approval: Who will win?"
 date: '2020-10-13'
 description: Trump's Approval Margins
 draft: no

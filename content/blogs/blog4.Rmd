@@ -8,7 +8,7 @@ draft: false
 image: forest.jpg
 keywords: ""
 slug: blog4
-title: Climate change and temperature anomalies 
+title: How is the world get along with environment? 
 ---
 
 
@@ -59,9 +59,9 @@ library(socviz)
 # Climate change and temperature anomalies 
 
 
-If we wanted to study climate change, we can find data on the *Combined Land-Surface Air and Sea-Surface Water Temperature Anomalies* in the Northern Hemisphere at [NASA's Goddard Institute for Space Studies](https://data.giss.nasa.gov/gistemp). The [tabular data of temperature anomalies can be found here](https://data.giss.nasa.gov/gistemp/tabledata_v3/NH.Ts+dSST.txt)
+If we wanted to study climate change, we could find data on the *Combined Land-Surface Air and Sea-Surface Water Temperature Anomalies* in the Northern Hemisphere at [NASA's Goddard Institute for Space Studies](https://data.giss.nasa.gov/gistemp). The [tabular data of temperature anomalies can be found here](https://data.giss.nasa.gov/gistemp/tabledata_v3/NH.Ts+dSST.txt)
 
-To define temperature anomalies you need to have a reference, or base, period which NASA clearly states that it is the period between 1951-1980.
+To define temperature anomalies I firstly need to have a reference or base period which NASA clearly states that it is the period between 1951-1980.
 
 Run the code below to load the file:
 
@@ -76,11 +76,15 @@ weather <-
 
 For each month and year, the dataframe shows the deviation of temperature from the normal (expected). Further the dataframe is in wide format. 
 
-You have two objectives in this section:
 
-1. Select the year and the twelve month variables from the `weather` dataset. We do not need the others (J-D, D-N, DJF, etc.) for this assignment. Hint: use `select()` function.
 
-2. Convert the dataframe from wide to 'long' format. Hint: use `gather()` or `pivot_longer()` function. Name the new dataframe as `tidyweather`, name the variable containing the name of the month as `month`, and the temperature deviation values as `delta`.
+## Cleaning Data  
+  
+*Select the year and the twelve month variables from the `weather` dataset. We do not need the others (J-D, D-N, DJF, etc.) for this assignment.*
+
+*Convert the dataframe from wide to 'long' format.*
+
+*Name the new dataframe as `tidyweather`, name the variable containing the name of the month as `month`, and the temperature deviation values as `delta`.*
 
 
 ```{r tidyweather}
@@ -100,7 +104,7 @@ tidyweather
 
 ## Plotting Information
 
-Let us plot the data using a time-series scatter plot, and add a trendline. To do that, we first need to create a new variable called `date` in order to ensure that the `delta` values are plot chronologically. 
+*Let us plot the data using a time-series scatter plot, and add a trendline. To do that, we first need to create a new variable called `date` in order to ensure that the `delta` values are plot chronologically. *
 
 ```{r scatter_plot}
 
@@ -122,7 +126,7 @@ ggplot(tidyweather, aes(x=Year, y = Delta))+
 
 ```
 
-Is the effect of increasing temperature more pronounced in some months? Use `facet_wrap()` to produce a separate scatter plot for each month, again with a smoothing line. Your chart should human-readable labels; that is, each month should be labeled "Jan", "Feb", "Mar" (full or abbreviated month names are fine), not `1`, `2`, `3`. 
+*In order to observe the effect of increasing temperature and examine whether the effect is more pronounced in some months, I use `facet_wrap()` to produce a separate scatter plot for each month, again with a smoothing line.*
 
 ```{r facet_wrap}
 
@@ -139,9 +143,11 @@ ggplot(tidyweather, aes(x=Year, y = Delta))+
 
 ```
 
-It is sometimes useful to group data into different time periods to study historical data. For example, we often refer to decades such as 1970s, 1980s, 1990s etc. to refer to a period of time. N0ASA calculates a temperature anomaly, as difference form the base period of of 1951-1980. The code below creates a new data frame called `comparison` that groups data in five time periods: 1881-1920, 1921-1950, 1951-1980, 1981-2010 and 2011-present. 
 
-We remove data before 1800 and before using `filter`. Then, we use the `mutate` function to create a new variable `interval` which contains information on which period each observation belongs to. We can assign the different periods using `case_when()`.
+
+*It is sometimes useful to group data into different time periods to study historical data. For example, we often refer to decades such as 1970s, 1980s, 1990s etc. to refer to a period of time. N0ASA calculates a temperature anomaly, as difference form the base period of of 1951-1980. The code below creates a new data frame called `comparison` that groups data in five time periods: 1881-1920, 1921-1950, 1951-1980, 1981-2010 and 2011-present. *
+
+*We remove data before 1800 and before using `filter`. Then, we use the `mutate` function to create a new variable `interval` which contains information on which period each observation belongs to. We can assign the different periods using `case_when()`.*
 
 
 ```{r intervals}
@@ -160,7 +166,7 @@ comparison <- tidyweather %>%
 ```
 
 
-Now that we have the `interval` variable, we can create a density plot to study the distribution of monthly deviations (`delta`), grouped by the different time periods we are interested in. Set `fill` to `interval` to group and colour the data by different time periods.
+*Now that we have the `interval` variable, we can create a density plot to study the distribution of monthly deviations (`delta`), grouped by the different time periods we are interested in. Set `fill` to `interval` to group and colour the data by different time periods.*
 
 ```{r density_plot}
 
@@ -176,7 +182,7 @@ ggplot(comparison, aes(x=Delta, fill=Interval))+
 
 ```
 
-So far, we have been working with monthly anomalies. However, we might be interested in average annual anomalies. We can do this by using `group_by()` and `summarise()`, followed by a scatter plot to display the result. 
+*So far, we have been working with monthly anomalies. However, we might be interested in average annual anomalies. We can do this by using `group_by()` and `summarise()`, followed by a scatter plot to display the result. *
 
 ```{r averaging}
 
@@ -213,7 +219,9 @@ ggplot(average_annual_anomaly, aes(x=Year, y= annual_average_delta))+
 
 > A one-degree global change is significant because it takes a vast amount of heat to warm all the oceans, atmosphere, and land by that much. In the past, a one- to two-degree drop was all it took to plunge the Earth into the Little Ice Age.
 
-Your task is to construct a confidence interval for the average annual delta since 2011, both using a formula and using a bootstrap simulation with the `infer` package. Recall that the dataframe `comparison` has already grouped temperature anomalies according to time intervals; we are only interested in what is happening  between 2011-present.
+*I then construct a confidence interval for the average annual delta since 2011, both using a formula and using a bootstrap simulation with the `infer` package. Recall that the dataframe `comparison` has already grouped temperature anomalies according to time intervals; we are only interested in what is happening  between 2011-present.*
+
+### Formula ###
 
 ```{r, calculate_CI_using_formula}
 
@@ -257,10 +265,13 @@ formula_ci2 <- comparison %>%
 # print out CI in table format
 formula_ci2 %>%
   kbl(col.names = c("Mean delta", "SD delta", "Count", "T-Value", "SE", "Margin of error", "CI lower", "CI upper")) %>%
-  kable_classic(c("hover"), html_font = "Cambria") %>%
+  kable_classic(c("hover"), html_font = "Cambria",color="white") %>%
   kable_styling()
 
 ```
+
+
+### Bootsrap ###
 
 ```{r, calculate_CI_using_bootstrap}
 
@@ -296,4 +307,4 @@ visualize(boot_aad) +
 
 ```
 
-Generally, increasing temperature follows a similar trend through the year, however, there is a particularly higher impact in the first three months of the year. Furthermore, it is evident that 1981 onward, intervals have had wider bases, implying an increase in temperature anomalies. Upon an overall analysis of the above data it is evident that the average annual change in data is increasing at an accelartaing rate.
+*Generally, increasing temperature follows a similar trend through the year, however, there is a particularly higher impact in the first three months of the year. Furthermore, it is evident that 1981 onward, intervals have had wider bases, implying an increase in temperature anomalies. Upon an overall analysis of the above data it is evident that the average annual change in data is increasing at an accelartaing rate.*
