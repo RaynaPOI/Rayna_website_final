@@ -65,5 +65,14 @@ To define temperature anomalies I firstly need to have a reference or base perio
       <description>Hello! My name is Rayna Zhang! I am currently reading Masters in Financial Analysis at London Business School. Six years ago, I came to the UK to start my A-level study. I obtained my Bachelor&amp;rsquo;s Degree in Economics at the University of Cambridge. I have long been interested in financial markets and wish to explore more via live deals. I wish to join a proactive team in investment banking.</description>
     </item>
     
+    <item>
+      <title>My Resume</title>
+      <link>/blogs/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/blogs/cv/</guid>
+      <description>I am looking forward to opportunities in investment banking.</description>
+    </item>
+    
   </channel>
 </rss>

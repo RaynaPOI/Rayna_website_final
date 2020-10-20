@@ -73,8 +73,9 @@ disqusShortname = ""
 
     # Button Style 2
     [[params.navigation.button2]]
-      name = "Log In"
-      url = "#"
+      name = "My CV"
+      url = "blogs/cv"
+      image = "cv.jpeg"
 
 
   # Banner section

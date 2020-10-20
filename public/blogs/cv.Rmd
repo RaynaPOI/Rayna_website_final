@@ -1,0 +1,14 @@
+---
+title: "My Resume"
+author: "Rayna"
+date: "17/10/2020"
+image: cv.jpeg
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+ *I am looking forward to opportunities in investment banking.*
+ 
