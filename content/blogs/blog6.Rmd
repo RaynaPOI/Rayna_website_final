@@ -1,7 +1,7 @@
 ---
 title: "Do Yield Curves foresee recessions?"
 date: '2020-10-13'
-description: Yield Curves
+description:
 draft: no
 image: tech.jpg
 keywords: ''
