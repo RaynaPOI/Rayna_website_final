@@ -118,7 +118,6 @@ ggplot(data1, aes(x=week, y=avg_net, color=factor(year), fill=factor(year)))+
        y= "Average Net Approval (%)"
      )+
   geom_hline(aes(yintercept=0,color="orange"))
-  NULL
 
 ```
 
